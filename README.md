@@ -1,6 +1,10 @@
 # The $2M Opportunity
 ### Why YouTube's Most Valuable Creators Aren't Who the Platform Thinks
 
+## 🚀 Live Dashboard
+
+**Streamlit App:** https://zj3g6lsvzqsbqy7infqqmc.streamlit.app/
+
 > **Project type:** Creator Behavioral Segmentation + Revenue Gap Analysis  
 > **Analyst:** Patrali  
 > **Dataset:** ~4,000 creators · ~113,000 video records · 90-day window (Apr–Jun 2024)  
