@@ -14,44 +14,6 @@ Subscriber count misses **17% of the creator base** — a high-retention archety
 
 ---
 
-## Repository Structure
-
-```
-the-2m-opportunity/
-│
-├── data/
-│   ├── generate_dataset.py       ← Generates clean synthetic data from scratch
-│   ├── gen_messy.py              ← Injects 12 realistic data quality issues
-│   ├── creators_messy.csv        ← Raw dataset (4,047 rows, 12 issues)
-│   ├── creators_clean.csv        ← Analysis-ready creators (3,988 rows)
-│   ├── videos_messy.csv          ← Raw video dataset (113,528 rows, 7 issues)
-│   └── videos_clean.csv          ← Analysis-ready videos (113,353 rows)
-│
-├── analysis/
-│   ├── 00_data_cleaning.py       ← Step-by-step cleaning with WHY/HOW comments
-│   ├── 01_eda.py                 ← Exploratory data analysis + distribution plots
-│   ├── 02_kmeans_scratch.py      ← KMeans built from scratch in NumPy (no sklearn)
-│   ├── 03_segmentation.py        ← Full clustering pipeline → creator_segments.csv
-│   ├── 04_revenue_gap.py         ← Quantifies the $2M opportunity
-│   └── 05_validation.py          ← 3 independent validation checks
-│
-├── sql/
-│   ├── 01_creator_overview.sql   ← Creator base + niche distribution
-│   ├── 02_tier_analysis.sql      ← Subscriber-tier revenue (the surface assumption)
-│   ├── 03_archetype_performance.sql ← Post-clustering archetype profiles
-│   ├── 04_revenue_gap.sql        ← Gap quantification in SQL
-│   └── 05_validation.sql         ← SQL-level validation checks
-│
-├── dashboard/
-│   └── the_2m_opportunity_dashboard.html  ← Self-contained interactive dashboard
-│
-├── looker_studio_guide.md        ← Step-by-step Looker Studio build instructions
-├── requirements.txt
-└── README.md
-```
-
----
-
 ## The Narrative (7 Acts)
 
 | Act | What happens |
