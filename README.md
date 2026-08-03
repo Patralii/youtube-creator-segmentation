@@ -10,27 +10,26 @@
 > **Dataset:** ~4,000 creators · ~113,000 video records · 90-day window (Apr–Jun 2024)  
 > **Method:** KMeans Clustering (manual NumPy implementation) · Revenue Gap Quantification
 
----
+
 
 ## The One-Sentence Finding
 
-Subscriber count misses **17% of the creator base** — a high-retention archetype that outperforms top-tier creators by **+40% retention** yet earns **70% less per view**, leaving **~$2M** in unrealized revenue on the table every 90 days.
+Subscriber count misses **17% of the creator base**  a high-retention archetype that outperforms top-tier creators by **+40% retention** yet earns **70% less per view**, leaving **~$2M** in unrealized revenue on the table every 90 days.
 
----
+
 
 ## The Narrative (7 Acts)
 
 | Act | What happens |
 |-----|-------------|
-| I   | **The Assumption** — subscriber count is the platform's proxy for creator value |
-| II  | **Surface Check** — Mega-tier creators DO generate 50%+ of revenue. Assumption holds. |
-| III | **Reframe** — cluster creators on behavior (retention, CTR, cadence, velocity, consistency), not scale |
-| IV  | **The Finding** — a 684-creator archetype with +40% retention vs Giants, hidden in the "Mid" tier |
-| V   | **The Gap** — that archetype earns 70% less per view → $1.99M unrealized revenue / 90 days |
-| VI  | **Validation** — 3 independent checks confirm it's structural, not noise |
-| VII | **Recommendation** — shift algorithmic boosting and RPM tiers toward behavioral health signals |
+| I   | **The Assumption**:  subscriber count is the platform's proxy for creator value |
+| II  | **Surface Check**:  Mega-tier creators DO generate 50%+ of revenue. Assumption holds. |
+| III | **Reframe**:  cluster creators on behavior (retention, CTR, cadence, velocity, consistency), not scale |
+| IV  | **The Finding**:  a 684-creator archetype with +40% retention vs Giants, hidden in the "Mid" tier |
+| V   | **The Gap**:  that archetype earns 70% less per view → $1.99M unrealized revenue / 90 days |
+| VI  | **Validation**:  3 independent checks confirm it's structural, not noise |
+| VII | **Recommendation**:  shift algorithmic boosting and RPM tiers toward behavioral health signals |
 
----
 
 ## How to Run
 
@@ -44,7 +43,7 @@ pip install -r requirements.txt
 python data/generate_dataset.py
 python data/gen_messy.py
 ```
-> Skip this step — messy and clean CSVs are already included.
+> Skip this step  messy and clean CSVs are already included.
 
 ### 3. Clean the data
 ```bash
@@ -88,9 +87,9 @@ sqlite3 youtube.db
 
 ### 9. Open the dashboard
 Open `dashboard/the_2m_opportunity_dashboard.html` in any browser.  
-No server needed — fully self-contained.
+No server needed  fully self-contained.
 
----
+
 
 ## The Five Behavioral Archetypes
 
@@ -102,7 +101,7 @@ No server needed — fully self-contained.
 | Consistent Volume Builders | 1,218 (30.5%) | 31.4% | $2.60 | $1,612 |
 | Emerging Dabblers | 1,246 (31.1%) | 19.3% | $1.80 | $68 |
 
----
+
 
 ## Key Technical Decisions
 
@@ -113,12 +112,12 @@ sklearn's `KMeans()` is a one-line API call. The manual NumPy implementation in 
 Subscriber count is the variable whose validity as a proxy we are testing. Including it in the feature set would bias clusters toward subscriber tiers, making it impossible to find archetypes that cut across tiers.
 
 **Why archetype-level median imputation (not global)?**  
-The distribution of retention and RPM differs significantly between archetypes. Imputing with the global median injects cross-archetype information into the feature space — the exact bias we're trying to avoid.
+The distribution of retention and RPM differs significantly between archetypes. Imputing with the global median injects cross-archetype information into the feature space  the exact bias we're trying to avoid.
 
 **Why Subscriber Giants as the parity benchmark?**  
 Giants represent the segment the algorithm currently rewards. Using the platform average would understate the gap. Giants is the fairest apples-to-apples comparison.
 
----
+
 
 ## Skills Demonstrated
 
@@ -126,10 +125,10 @@ Giants represent the segment the algorithm currently rewards. Using the platform
 **ML:** Unsupervised clustering · K selection (elbow + silhouette) · Cluster stability testing  
 **Engineering:** End-to-end data pipeline · Synthetic data generation · Multi-format data cleaning  
 **Communication:** PM-facing executive summary · Dollar-quantified impact · Two-sided marketplace framing  
-**Tools:** Python · Pandas · NumPy · SQL/SQLite · Matplotlib/Seaborn · Looker Studio  
+**Tools:** Python · Pandas · NumPy · SQL · Matplotlib/Seaborn
 
----
+
 
 ## Recruiter Signal
 
-This project demonstrates **supply-side marketplace thinking** — not just user analytics. The framing is: YouTube's algorithm is a two-sided market (creators supply content, advertisers buy attention). Misaligning monetisation signals with actual attention quality is a supply-side pricing bug, not just a creator-fairness issue. The $2M figure is the business case for fixing it.
+This project demonstrates **supply-side marketplace thinking**  not just user analytics. The framing is: YouTube's algorithm is a two-sided market (creators supply content, advertisers buy attention). Misaligning monetisation signals with actual attention quality is a supply-side pricing bug, not just a creator-fairness issue. The $2M figure is the business case for fixing it.
